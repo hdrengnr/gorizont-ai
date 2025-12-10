@@ -14,8 +14,9 @@
   <body>
     <div id="root"></div>
     <script>
-      // Отключить ТОЛЬКО кнопку "Войти в систему"
+      // Отключить ТОЛЬКО кнопку "Войти в систему" и бургер
       setTimeout(() => {
+        // Отключить кнопку входа
         const buttons = Array.from(document.querySelectorAll('button'));
         const loginButton = buttons.find(btn =>
           btn.textContent.includes('Войти в систему') ||
@@ -26,6 +27,25 @@
           loginButton.style.opacity = '0.6';
           loginButton.style.cursor = 'default';
           loginButton.disabled = true;
+        }
+
+        // Отключить бургер-меню (div с 3 полосками)
+        const allDivs = Array.from(document.querySelectorAll('div'));
+        const burger = allDivs.find(div => {
+          const children = Array.from(div.children);
+          // Бургер = div с 3 дочерними div (полоски)
+          return children.length === 3 &&
+            children.every(child =>
+              child.tagName === 'DIV' &&
+              child.style.width &&
+              child.style.height &&
+              child.style.background
+            );
+        });
+        if (burger) {
+          burger.style.pointerEvents = 'none';
+          burger.style.opacity = '0.5';
+          burger.style.cursor = 'default';
         }
       }, 1000);
     </script>
