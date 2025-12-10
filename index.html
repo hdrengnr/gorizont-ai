@@ -14,62 +14,82 @@
   <body>
     <div id="root"></div>
     <script>
-      // Отключить кнопку "Войти в систему" и бургер
-      function disableElements() {
-        // Отключить кнопку входа
-        const buttons = Array.from(document.querySelectorAll('button'));
-        const loginButton = buttons.find(btn =>
-          btn.textContent.trim() === 'Войти в систему' ||
-          btn.textContent.trim() === 'Открыть Гант АСУП'
-        );
-        if (loginButton && loginButton.style.pointerEvents !== 'none') {
-          loginButton.style.pointerEvents = 'none';
-          loginButton.style.opacity = '0.6';
-          loginButton.style.cursor = 'default';
-          loginButton.onclick = null;
-          loginButton.disabled = true;
-          console.log('Login button disabled');
+      // Отключить кнопку "Войти в систему" и бургер через capture phase
+      (function() {
+        let loginButton = null;
+        let burgerElement = null;
+
+        // Найти элементы
+        function findElements() {
+          // Кнопка входа
+          if (!loginButton) {
+            const buttons = Array.from(document.querySelectorAll('button'));
+            loginButton = buttons.find(btn =>
+              btn.textContent.trim() === 'Войти в систему' ||
+              btn.textContent.trim() === 'Открыть Гант АСУП'
+            );
+            if (loginButton) {
+              loginButton.style.opacity = '0.6';
+              loginButton.style.cursor = 'default';
+              console.log('Login button found');
+            }
+          }
+
+          // Бургер (div с 3 полосками)
+          if (!burgerElement) {
+            const allDivs = Array.from(document.querySelectorAll('div'));
+            burgerElement = allDivs.find(div => {
+              const children = Array.from(div.children);
+              return children.length === 3 &&
+                children.every(child =>
+                  child.tagName === 'DIV' &&
+                  (child.style.width || child.style.height || child.style.background)
+                );
+            });
+            if (burgerElement) {
+              burgerElement.style.opacity = '0.5';
+              burgerElement.style.cursor = 'default';
+              console.log('Burger found');
+            }
+          }
         }
 
-        // Отключить бургер - ищем по всем div с onclick
-        const allDivs = Array.from(document.querySelectorAll('div'));
+        // Блокировка событий для кнопки входа и бургера
+        function blockEvent(e) {
+          const target = e.target;
 
-        // Вариант 1: ищем div с 3 дочерними div (полоски бургера)
-        const burgers = allDivs.filter(div => {
-          const children = Array.from(div.children);
-          // Проверяем что у div ровно 3 дочерних элемента
-          if (children.length !== 3) return false;
-          // Проверяем что все дочерние элементы - это div с width и height в inline стилях
-          const allStripes = children.every(child => {
-            return child.tagName === 'DIV' &&
-                   (child.style.width || child.style.height || child.style.background);
-          });
-          return allStripes;
-        });
-
-        // Отключаем все найденные бургеры
-        burgers.forEach(burger => {
-          if (burger.style.pointerEvents !== 'none') {
-            burger.style.pointerEvents = 'none';
-            burger.style.opacity = '0.5';
-            burger.style.cursor = 'default';
-            // Убираем все обработчики событий
-            const clone = burger.cloneNode(true);
-            burger.parentNode.replaceChild(clone, burger);
-            clone.style.pointerEvents = 'none';
-            clone.style.opacity = '0.5';
-            clone.style.cursor = 'default';
-            console.log('Burger disabled');
+          // Блокируем клики на кнопку входа
+          if (loginButton && (target === loginButton || loginButton.contains(target))) {
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('Login button click blocked');
+            return;
           }
-        });
-      }
 
-      // Запускаем сразу и через интервалы
-      setInterval(disableElements, 500);
+          // Блокируем клики на бургер
+          if (burgerElement && (target === burgerElement || burgerElement.contains(target))) {
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('Burger click blocked');
+            return;
+          }
+        }
 
-      // И следим за изменениями DOM
-      const observer = new MutationObserver(disableElements);
-      observer.observe(document.body, { childList: true, subtree: true });
+        // Установка обработчиков на фазе capture (до React!)
+        window.addEventListener('click', blockEvent, true);
+        window.addEventListener('mousedown', blockEvent, true);
+        window.addEventListener('pointerdown', blockEvent, true);
+        window.addEventListener('touchstart', blockEvent, { capture: true, passive: false });
+
+        // Поиск элементов с интервалом
+        setInterval(findElements, 500);
+
+        // И при изменениях DOM
+        const observer = new MutationObserver(findElements);
+        observer.observe(document.body, { childList: true, subtree: true });
+      })();
     </script>
   </body>
 </html>
