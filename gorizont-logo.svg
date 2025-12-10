@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- outer frame -->
+  <rect x="20" y="20" width="960" height="960"
+        fill="none" stroke="#ffffff" stroke-width="40"/>
+
+  <!-- horizontal separator -->
+  <rect x="40" y="340" width="920" height="26" fill="#ffffff"/>
+
+  <!-- curved lines - paired, U-shaped dipping to center -->
+  <!-- Pair 1 -->
+  <path d="M40 390 C300 390 700 390 960 390" fill="none" stroke="#ffffff" stroke-width="20"/>
+  <path d="M40 430 C300 500 700 500 960 430" fill="none" stroke="#ffffff" stroke-width="20"/>
+
+  <!-- Pair 2 -->
+  <path d="M40 480 C300 580 700 580 960 480" fill="none" stroke="#ffffff" stroke-width="20"/>
+  <path d="M40 530 C300 660 700 660 960 530" fill="none" stroke="#ffffff" stroke-width="20"/>
+
+  <!-- Pair 3 -->
+  <path d="M40 590 C300 740 700 740 960 590" fill="none" stroke="#ffffff" stroke-width="20"/>
+  <path d="M40 650 C300 820 700 820 960 650" fill="none" stroke="#ffffff" stroke-width="20"/>
+
+  <!-- Pair 4 -->
+  <path d="M40 720 C300 900 700 900 960 720" fill="none" stroke="#ffffff" stroke-width="20"/>
+  <path d="M40 790 C300 970 700 970 960 790" fill="none" stroke="#ffffff" stroke-width="20"/>
+</svg>
