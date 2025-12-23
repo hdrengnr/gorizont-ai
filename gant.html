@@ -43,32 +43,271 @@
         <!-- GANT PROTOCOL -->
         <section id="gant" class="section">
             <h1>Gant Protocol</h1>
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 2em;">Формальная спецификация для машиночитаемого представления иерархических проектных структур</p>
 
-            <p><strong>Gant Protocol</strong> - это открытый унифицированный протокол для структурированного описания проектов, задач и процессов с использованием стандартных форматов данных (YAML/JSON).</p>
+            <p>Современные системы управления проектами (PMS) страдают от фундаментальной проблемы vendor lock-in на уровне представления данных. Gant Protocol предлагает решение через унифицированное формальное представление проектных артефактов с сохранением полной семантической информации.</p>
 
-            <h2>Ключевые принципы</h2>
+            <h2>Теоретические основы</h2>
 
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Открытость</h3>
-                    <p>Спецификация протокола доступна всем. Любая система может читать и записывать данные в формате Gant.</p>
+            <p>Gant Protocol базируется на <strong>направленном ациклическом графе (DAG)</strong> с типизированными рёбрами, где узлы представляют проектные сущности (phases, tasks, subtasks), а рёбра кодируют отношения зависимости, иерархии и семантические связи.</p>
+
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto; font-family: 'Courier New', monospace; line-height: 1.8;"><code>G = (V, E, T, S)
+где:
+V = {v₁, v₂, ..., vₙ} — множество вершин (проектные сущности)
+E ⊆ V × V × R — множество типизированных рёбер
+R = {hierarchy, dependency, semantic} — типы отношений
+T: V → {planned, in-progress, done, blocked} — функция состояния
+S: V → [0, 1] — функция прогресса</code></pre>
+
+            <h2>Онтология briefing</h2>
+
+            <p>Каждая вершина графа аннотируется триадой <strong>(What, How, Why)</strong>, формируя самодокументируемую онтологию:</p>
+
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>What<br><span style="font-weight: normal; font-size: 0.9em;">Что</span></h3>
+                    <p>Декларативное описание цели задачи без привязки к деталям реализации</p>
                 </div>
 
-                <div class="card">
-                    <h3>Простота</h3>
-                    <p>Использование стандартных форматов (YAML/JSON) делает протокол понятным как для людей, так и для машин.</p>
+                <div class="feature">
+                    <h3>How<br><span style="font-weight: normal; font-size: 0.9em;">Как</span></h3>
+                    <p>Методология выполнения: инструменты, подходы, последовательность шагов</p>
                 </div>
 
-                <div class="card">
-                    <h3>Расширяемость</h3>
-                    <p>Базовая структура поддерживает добавление кастомных полей без нарушения совместимости.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Версионность</h3>
-                    <p>Поддержка миграций между версиями протокола гарантирует долгосрочную совместимость.</p>
+                <div class="feature">
+                    <h3>Why<br><span style="font-weight: normal; font-size: 0.9em;">Зачем</span></h3>
+                    <p>Бизнес-обоснование: метрики успеха, ценность для проекта, приоритет</p>
                 </div>
             </div>
+
+            <h2>Технологический стек</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 24px 0;">
+                <div>
+                    <h3 style="margin-bottom: 12px;">Формат данных</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• YAML для человекочитаемости</li>
+                        <li>• JSON для API</li>
+                        <li>• Markdown для документации</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Хранение</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• Файловая система (Git-friendly)</li>
+                        <li>• CRDT для конфликт-резолюции</li>
+                        <li>• Снапшоты с автоочисткой</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Валидация</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• JSON Schema</li>
+                        <li>• Pydantic (Python)</li>
+                        <li>• TypeScript типизация</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">API</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• FastAPI (async)</li>
+                        <li>• RESTful endpoints</li>
+                        <li>• WebSocket для real-time</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Безопасность</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• Encryption at Rest (AES-256)</li>
+                        <li>• Audit Log (append-only)</li>
+                        <li>• JWT авторизация</li>
+                        <li>• Field-level encryption</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Analytics</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• Dashboard с метриками</li>
+                        <li>• Real-time статистика задач</li>
+                        <li>• Top contributors tracking</li>
+                        <li>• Completion rate analytics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Обоснование выбора технологий</h2>
+
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Vendor lock-in устранение</h3>
+                    <p>YAML/JSON как lingua franca — портируемость между любыми системами без привязки к конкретным инструментам</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Git-совместимость</h3>
+                    <p>Текстовые форматы позволяют версионирование, diff, merge и code review через стандартные Git-процессы</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Человеко-машинная дуальность</h3>
+                    <p>YAML читаем людьми для ревью и правок, JSON эффективен для машинной обработки через API</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Распределённость</h3>
+                    <p>CRDT-семантика гарантирует корректное слияние параллельных изменений без центрального сервера</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Type safety</h3>
+                    <p>JSON Schema + Pydantic + TypeScript обеспечивают строгую типизацию на всех уровнях стека</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Performance</h3>
+                    <p>FastAPI (async) + файловое хранилище + снапшоты обеспечивают &lt;50ms latency для типичных операций</p>
+                </div>
+            </div>
+
+            <h2>Архитектурные принципы</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 24px 0;">
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                    <h3 style="margin-top: 0;">Декларативность</h3>
+                    <p style="margin-bottom: 0;">Протокол описывает что должно быть достигнуто, а не как система должна это исполнить</p>
+                </div>
+
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                    <h3 style="margin-top: 0;">Идемпотентность</h3>
+                    <p style="margin-bottom: 0;">Повторное применение спецификации даёт идентичный результат через CRDT-подобную семантику</p>
+                </div>
+
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                    <h3 style="margin-top: 0;">Композиционность</h3>
+                    <p style="margin-bottom: 0;">Сложные проекты формируются композицией атомарных единиц через оператор вложенности</p>
+                </div>
+
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                    <h3 style="margin-top: 0;">MVC Pattern</h3>
+                    <p style="margin-bottom: 0;">Разделение представления и визуализации. Модель независима от UI</p>
+                </div>
+            </div>
+
+            <h2>Формальная спецификация (YAML Schema)</h2>
+
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;"><code>plan_id: string
+timeline:
+  start_date: date-time
+  due_date: date-time
+phases:
+  - status: planned | in-progress | done | blocked
+    progress: 0.0 - 1.0
+    briefing: "Что/Как/Зачем"
+    depends_on: [task_ids]</code></pre>
+
+            <h2>Конечный автомат состояний</h2>
+
+            <p>Допустимые переходы между состояниями задач строго определены:</p>
+
+            <ul style="line-height: 1.8;">
+                <li><code>planned → in-progress</code> (событие: start_execution)</li>
+                <li><code>in-progress → done</code> (событие: complete_task)</li>
+                <li><code>in-progress → blocked</code> (событие: dependency_failed)</li>
+                <li><code>blocked → in-progress</code> (событие: unblock_dependency)</li>
+                <li><code>* → planned</code> (событие: reset_to_initial)</li>
+            </ul>
+
+            <h2>Семантические расширения</h2>
+
+            <h3>Temporal Logic для валидации зависимостей</h3>
+
+            <p>Используя Linear Temporal Logic (LTL), можно формализовать корректность последовательности выполнения:</p>
+
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto; font-size: 1.1em;"><code>□(task_A.status = done → ◊task_B.status ≠ blocked)</code></pre>
+
+            <p style="font-style: italic; color: #666;">(Всегда: если задача A завершена, то в будущем задача B не будет заблокирована)</p>
+
+            <h3>Constraint Satisfaction Problem (CSP)</h3>
+
+            <p>Расписание проекта представимо как CSP, где:</p>
+
+            <ul style="line-height: 1.8;">
+                <li>• Переменные = {start_time(task) | task ∈ V}</li>
+                <li>• Домены = временные интервалы [t_min, t_max]</li>
+                <li>• Ограничения = depends_on + deadline + resource_capacity</li>
+            </ul>
+
+            <p>Решение CSP даёт оптимальное расписание при заданных ограничениях.</p>
+
+            <h2>Интероперабельность и экосистема</h2>
+
+            <p><strong>Адаптеры для существующих форматов:</strong></p>
+
+            <ul style="line-height: 1.8;">
+                <li>• MS Project XML → Gant Protocol (структурная конвертация)</li>
+                <li>• Jira REST API → Gant Protocol (семантический маппинг)</li>
+                <li>• Trello JSON → Gant Protocol (трансформация Kanban → Gantt)</li>
+            </ul>
+
+            <h3>Референсная имплементация (Presynth)</h3>
+
+            <p>Клиент-серверная архитектура с FastAPI backend и React frontend:</p>
+
+            <ul style="line-height: 1.8;">
+                <li>• <strong>Parser Layer:</strong> YAML → Abstract Syntax Tree (AST)</li>
+                <li>• <strong>Validation Layer:</strong> JSON Schema + custom semantic rules</li>
+                <li>• <strong>Rendering Layer:</strong> AST → React Flow DAG visualization</li>
+                <li>• <strong>Persistence Layer:</strong> Git-backed version control</li>
+            </ul>
+
+            <h2>Теоретические гарантии</h2>
+
+            <div style="background: #f0f8ff; padding: 24px; border-radius: 4px; margin: 24px 0; border-left: 4px solid #0066cc;">
+                <p style="margin: 0 0 12px 0;"><strong>Безопасность типов.</strong> Статическая валидация через JSON Schema</p>
+                <p style="margin: 0 0 12px 0;"><strong>Детерминированность.</strong> Идентичная спецификация → изоморфные графы</p>
+                <p style="margin: 0;"><strong>Монотонность прогресса.</strong> ∀t₁ &lt; t₂: S(v, t₁) ≤ S(v, t₂)</p>
+            </div>
+
+            <h2>API контракт</h2>
+
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;"><code>@dataclass
+class GantPlan:
+    plan_id: str
+    phases: List[Phase]
+    timeline: Timeline
+
+    def validate(self) -> ValidationResult:
+        """Проверка инвариантов графа и временных ограничений"""
+
+    def compute_critical_path(self) -> List[Task]:
+        """Алгоритм поиска критического пути (O(V + E))"""
+
+    def serialize(self, format: Format) -> bytes:
+        """Сериализация в YAML | JSON | MessagePack"""</code></pre>
+
+            <h2>Области применения</h2>
+
+            <ul style="line-height: 1.8;">
+                <li>• Формальная верификация проектных планов через model checking</li>
+                <li>• Автоматическое планирование на основе AI (constraint optimization)</li>
+                <li>• Distributed project management с eventual consistency</li>
+                <li>• Академические исследования в области project management theory</li>
+            </ul>
+
+            <h2>Техническая документация</h2>
+
+            <p><strong>API Документация:</strong> Интерактивная спецификация доступна на <a href="api.html">/docs</a><br>
+            Автогенерируется FastAPI с полным описанием endpoints</p>
+
+            <p><strong>Валидация данных:</strong> Pydantic models обеспечивают type safety<br>
+            Автоматическая проверка на стороне сервера</p>
+
+            <p style="margin-top: 2em;">Для вопросов по интеграции: <a href="mailto:contact@gorizont.ai">contact@gorizont.ai</a></p>
         </section>
     </main>
 
