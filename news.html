@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Новости - Gorizont R&D</title>
+    <meta name="description" content="Новости компании Gorizont R&D">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <section class="section">
+            <h1>Новости</h1>
+            <p>Следите за новостями от Gorizont R&D и развитием технологии Gant Protocol и платформы Гант АСУП.</p>
+
+            <div class="news-list">
+                <article class="news-item">
+                    <div class="news-date">09/12/25</div>
+                    <h2>Этап Pre-Production: тестирование и подготовка к запуску</h2>
+                    <p>Гант АСУП переходит в стадию Pre-Production Beta. Мы завершили реализацию ключевых возможностей платформы и приступили к финальному тестированию перед коммерческим запуском.</p>
+
+                    <p><strong>Что уже работает:</strong></p>
+                    <ul>
+                        <li>Gant Protocol — управление проектами через YAML/JSON</li>
+                        <li>Dashboard с метриками и аналитикой</li>
+                        <li>Multi-tenancy для команд и организаций</li>
+                        <li>Security features: Encryption at Rest (AES-256), Audit Log</li>
+                        <li>Интеграции: GitHub webhooks, 1C OData, Email (IMAP)</li>
+                        <li>WebAuthn/Passkeys аутентификация</li>
+                    </ul>
+
+                    <p><strong>Что тестируем сейчас:</strong></p>
+                    <ul>
+                        <li>Стабильность работы под нагрузкой</li>
+                        <li>Корректность работы backup/restore процедур</li>
+                        <li>Compliance с требованиями 152-ФЗ и GDPR</li>
+                        <li>Документация API и user guides</li>
+                    </ul>
+
+                    <p>Коммерческий запуск планируется в Q1 2026. Для получения раннего доступа: <a href="mailto:contact@gorizont.ai">contact@gorizont.ai</a></p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

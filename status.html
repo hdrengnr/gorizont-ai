@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Статус системы - Gorizont R&D</title>
+    <meta name="description" content="Статус сервисов платформы Гант АСУП">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <section class="section">
+            <h1>Статус системы</h1>
+            <p>Текущий статус сервисов платформы Гант АСУП</p>
+
+            <div class="status-summary">
+                <div class="status-indicator operational">
+                    <div class="status-dot"></div>
+                    <span>Все системы работают</span>
+                </div>
+                <div class="status-time">Обновлено: 23 декабря 2025, 00:30 UTC</div>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>REST API</h3>
+                        <p>Основной API для интеграций</p>
+                    </div>
+                    <div class="service-status operational">
+                        <div class="status-dot"></div>
+                        <span>Работает</span>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Web Application</h3>
+                        <p>Веб-интерфейс платформы</p>
+                    </div>
+                    <div class="service-status operational">
+                        <div class="status-dot"></div>
+                        <span>Работает</span>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Email Integration</h3>
+                        <p>Интеграция с почтовыми сервисами</p>
+                    </div>
+                    <div class="service-status operational">
+                        <div class="status-dot"></div>
+                        <span>Работает</span>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>GitHub Integration</h3>
+                        <p>Webhooks и синхронизация</p>
+                    </div>
+                    <div class="service-status operational">
+                        <div class="status-dot"></div>
+                        <span>Работает</span>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>1C OData Integration</h3>
+                        <p>Обмен данными с ERP системами</p>
+                    </div>
+                    <div class="service-status operational">
+                        <div class="status-dot"></div>
+                        <span>Работает</span>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Authentication Service</h3>
+                        <p>WebAuthn/Passkeys авторизация</p>
+                    </div>
+                    <div class="service-status operational">
+                        <div class="status-dot"></div>
+                        <span>Работает</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="api-note" style="margin-top: 48px;">
+                <p><strong>Подписаться на обновления:</strong> Отправьте письмо на <a href="mailto:contact@gorizont.ai?subject=Подписка на статус системы">contact@gorizont.ai</a> для получения уведомлений о статусе сервисов.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

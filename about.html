@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>О компании - Gorizont R&D</title>
+    <meta name="description" content="Gorizont R&D - технологическая компания, разработка технологии Gant Protocol и платформы Гант АСУП">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <!-- О КОМПАНИИ -->
+        <section id="about" class="section">
+            <h1>О компании</h1>
+
+            <p><strong>Gorizont R&D</strong> - технологическая компания, ведущая научно-исследовательские и инженерные разработки в сфере информационных технологий с целью внедрения автоматизации и повышения производительности труда, осуществляет функции IT-подрядчика и разрабатывает программное обеспечение по заданию заказчика.</p>
+
+            <p>В рамках НИОКР <strong>Gorizont R&D</strong> ведёт разработку технологии <strong>Gant Protocol</strong> и основанной на ней программной платформы <strong>Гант АСУП</strong>.</p>
+
+            <p>Платформа <strong>Гант АСУП</strong> представляет собой автоматизированную систему управления процессами, обеспечивающую сквозную поддержку жизненного цикла проектов и операционной деятельности: от постановки и декомпозиции задач до контроля исполнения и формирования аналитической отчётности. Использование платформы направлено на снижение доли ручных операций, повышение прозрачности процессов и сокращение временных и трудовых затрат.</p>
+
+            <img src="/images/landscape_mood.webp" alt="Landscape" class="section-image">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

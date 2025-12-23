@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Вакансии - Gorizont R&D</title>
+    <meta name="description" content="Открытые вакансии в Gorizont R&D">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <section class="section">
+            <h1>Вакансии</h1>
+            <p>Присоединяйтесь к команде Gorizont R&D — мы создаём технологии управления проектами будущего.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Legal/Operational менеджер</h3>
+                    <p><strong>Полная занятость</strong></p>
+                    <p>Юридическое сопровождение IT-компании, операционное управление.</p>
+
+                    <p><strong>Обязанности:</strong></p>
+                    <ul>
+                        <li>Юридическое сопровождение IT-компании (договоры, лицензии)</li>
+                        <li>Compliance с 152-ФЗ, GDPR</li>
+                        <li>Договорная работа (клиенты, подрядчики, НДА)</li>
+                        <li>Операционное управление (документооборот, процессы)</li>
+                    </ul>
+
+                    <p><strong>Требования:</strong></p>
+                    <ul>
+                        <li>Высшее юридическое образование</li>
+                        <li>Опыт работы в IT-компаниях от 2 лет</li>
+                        <li>Знание IT-законодательства РФ (152-ФЗ, IT-аккредитация)</li>
+                        <li>Английский язык (B2+) для работы с международными договорами</li>
+                        <li>Навыки операционного управления и автоматизации процессов</li>
+                    </ul>
+
+                    <p><strong>Условия:</strong></p>
+                    <ul>
+                        <li>Конкурентная зарплата</li>
+                        <li>ДМС</li>
+                        <li>Обучение за счёт компании</li>
+                    </ul>
+
+                    <p><a href="mailto:contact@gorizont.ai?subject=Вакансия: Legal/Operational менеджер" class="btn btn-primary">Откликнуться</a></p>
+                </div>
+
+                <div class="card">
+                    <h3>DevOps-инженер</h3>
+                    <p><strong>Полная занятость</strong></p>
+                    <p>Поддержка инфраструктуры Гант АСУП, CI/CD pipeline, мониторинг и on-premise развёртывание для enterprise клиентов.</p>
+
+                    <p><strong>Обязанности:</strong></p>
+                    <ul>
+                        <li>Поддержка и развитие инфраструктуры (Docker, Kubernetes)</li>
+                        <li>Настройка и оптимизация CI/CD pipeline (GitHub Actions)</li>
+                        <li>Мониторинг и логирование (Prometheus, Grafana)</li>
+                        <li>Backup & Recovery стратегии</li>
+                        <li>On-premise развёртывание для enterprise клиентов</li>
+                        <li>Security hardening (SSL/TLS, firewalls, audit)</li>
+                        <li>Автоматизация операций через IaC (Terraform/Ansible)</li>
+                    </ul>
+
+                    <p><strong>Требования:</strong></p>
+                    <ul>
+                        <li>Опыт работы DevOps-инженером от 2 лет</li>
+                        <li>Docker, Kubernetes (обязательно)</li>
+                        <li>Linux administration (Ubuntu/Debian)</li>
+                        <li>Terraform или Ansible — плюс</li>
+                        <li>Python/Bash scripting</li>
+                        <li>Опыт с cloud провайдерами (AWS/Yandex Cloud)</li>
+                        <li>Понимание security best practices</li>
+                    </ul>
+
+                    <p><strong>Условия:</strong></p>
+                    <ul>
+                        <li>Конкурентная зарплата</li>
+                        <li>Современный стек технологий</li>
+                    </ul>
+
+                    <p><a href="mailto:contact@gorizont.ai?subject=Вакансия: DevOps-инженер" class="btn btn-primary">Откликнуться</a></p>
+                </div>
+
+                <div class="card">
+                    <h3>AI/ML-инженер</h3>
+                    <p><strong>Полная занятость</strong></p>
+                    <p>Интеграция LLM в продукты компании, разработка AI-автоматизаций, research новых технологий в области AI.</p>
+
+                    <p><strong>Обязанности:</strong></p>
+                    <ul>
+                        <li>Интеграция LLM в продукты</li>
+                        <li>Разработка AI-автоматизаций для управления проектами</li>
+                        <li>Создание RAG систем для работы с документацией</li>
+                        <li>Fine-tuning моделей под задачи компании</li>
+                        <li>Prompt engineering и оптимизация производительности</li>
+                        <li>Research новых AI-технологий и трендов</li>
+                        <li>Построение evaluation pipeline для LLM</li>
+                    </ul>
+
+                    <p><strong>Требования:</strong></p>
+                    <ul>
+                        <li>Опыт работы с LLM</li>
+                        <li>Python (PyTorch/TensorFlow/Transformers)</li>
+                        <li>Знание RAG, embeddings, vector databases (Pinecone/Weaviate)</li>
+                        <li>Опыт fine-tuning моделей — плюс</li>
+                        <li>Английский язык (B2+)</li>
+                        <li>Понимание MLOps практик</li>
+                    </ul>
+
+                    <p><strong>Условия:</strong></p>
+                    <ul>
+                        <li>Конкурентная зарплата</li>
+                        <li>Доступ к передовым AI-технологиям</li>
+                        <li>R&D культура, свобода экспериментов</li>
+                    </ul>
+
+                    <p><a href="mailto:contact@gorizont.ai?subject=Вакансия: AI/ML-инженер" class="btn btn-primary">Откликнуться</a></p>
+                </div>
+            </div>
+
+            <div class="api-note" style="margin-top: 48px;">
+                <p>Не нашли подходящую вакансию? Отправьте своё резюме на <a href="mailto:contact@gorizont.ai">contact@gorizont.ai</a> — мы всегда рады талантливым специалистам!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

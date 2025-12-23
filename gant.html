@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Gant Protocol - Gorizont R&D</title>
+    <meta name="description" content="Gant Protocol - открытый унифицированный протокол для структурированного описания проектов">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <!-- GANT PROTOCOL -->
+        <section id="gant" class="section">
+            <h1>Gant Protocol</h1>
+
+            <p><strong>Gant Protocol</strong> - это открытый унифицированный протокол для структурированного описания проектов, задач и процессов с использованием стандартных форматов данных (YAML/JSON).</p>
+
+            <h2>Ключевые принципы</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Открытость</h3>
+                    <p>Спецификация протокола доступна всем. Любая система может читать и записывать данные в формате Gant.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Простота</h3>
+                    <p>Использование стандартных форматов (YAML/JSON) делает протокол понятным как для людей, так и для машин.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Расширяемость</h3>
+                    <p>Базовая структура поддерживает добавление кастомных полей без нарушения совместимости.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Версионность</h3>
+                    <p>Поддержка миграций между версиями протокола гарантирует долгосрочную совместимость.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

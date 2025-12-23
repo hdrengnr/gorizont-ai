@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Тарифы - Gorizont R&D</title>
+    <meta name="description" content="Планируемые тарифы платформы Гант АСУП">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <section id="pricing" class="section">
+            <h1>Планируемые тарифы</h1>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Планируемый тариф: Уровень 1</h3>
+                    <div class="price">Бесплатно</div>
+                    <ul class="features-list">
+                        <li>Gant Protocol (YAML/JSON проекты и задачи)</li>
+                        <li>Dashboard с метриками проектов</li>
+                        <li>Управление задачами и проектами</li>
+                        <li>Multi-tenancy (организации и команды)</li>
+                        <li>Encryption at Rest (AES-256 для PII)</li>
+                        <li>Audit Log (журнал действий пользователей)</li>
+                        <li>Email интеграция (AWS WorkMail IMAP)</li>
+                        <li>GitHub интеграция (webhooks, автосинхронизация)</li>
+                        <li>1C OData интеграция (ERP синхронизация)</li>
+                        <li>WebAuthn/Passkeys безопасность</li>
+                        <li>REST API с OpenAPI документацией</li>
+                        <li>Облачное хранилище 5 ГБ</li>
+                    </ul>
+                    <button class="btn">Выбрать план</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge">Популярный</div>
+                    <h3>Планируемый тариф: Уровень 2</h3>
+                    <div class="price">500 ₽<span class="period">/месяц</span></div>
+                    <ul class="features-list">
+                        <li>Всё из Уровня 1</li>
+                        <li>Облачное хранилище 100 ГБ</li>
+                        <li>Приоритетная поддержка</li>
+                    </ul>
+                    <button class="btn btn-primary">Выбрать план</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Планируемый тариф: Уровень 3</h3>
+                    <div class="price">Enterprise</div>
+                    <p class="enterprise-note">Свяжитесь с нами для получения индивидуального предложения</p>
+                    <button class="btn">Связаться</button>
+                </div>
+            </div>
+
+            <!-- Что работает / Что планируется -->
+            <div class="status-grid">
+                <div class="status-card ready">
+                    <div class="status-header">
+                        <img src="/icons/done.webp" alt="Done" class="status-icon">
+                        <h3>Что уже работает</h3>
+                    </div>
+                    <p class="status-subtitle">Production Ready — доступно прямо сейчас</p>
+                    <ul>
+                        <li>Gant Protocol (YAML/JSON)</li>
+                        <li>Dashboard с метриками</li>
+                        <li>Multi-tenancy & Teams</li>
+                        <li>WebAuthn/Passkeys</li>
+                        <li>Encryption at Rest (AES-256)</li>
+                        <li>Audit Log (журнал действий)</li>
+                        <li>GitHub интеграция</li>
+                        <li>1C OData интеграция</li>
+                        <li>Email интеграция (IMAP)</li>
+                        <li>REST API + OpenAPI docs</li>
+                        <li>Backup & Restore</li>
+                        <li>React Flow визуализация</li>
+                    </ul>
+                    <p class="status-count">24 возможности готовы к использованию</p>
+                </div>
+
+                <div class="status-card planned">
+                    <div class="status-header">
+                        <img src="/icons/loop.webp" alt="Loop" class="status-icon">
+                        <h3>Что планируется</h3>
+                    </div>
+                    <p class="status-subtitle">Roadmap Q1-Q2 2026</p>
+                    <ul>
+                        <li>Slack & Telegram интеграция</li>
+                        <li>JIRA & GitLab sync</li>
+                        <li>Velocity & Burndown charts</li>
+                        <li>Time tracking</li>
+                        <li>Real-time collaboration (WebSocket)</li>
+                        <li>Comments & mentions</li>
+                        <li>File attachments</li>
+                        <li>Custom fields & workflows</li>
+                        <li>Automations (if-then rules)</li>
+                        <li>Mobile apps (iOS/Android)</li>
+                        <li>SSO/SAML & LDAP</li>
+                        <li>White-label branding</li>
+                    </ul>
+                    <p class="status-count">23+ возможности в разработке</p>
+                </div>
+            </div>
+
+            <p class="pricing-footer">
+                Планируемые тарифы после коммерческого запуска (Q1 2026).<br>
+                Скидка 15% при годовой оплате. Для раннего доступа: contact@gorizont.ai
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

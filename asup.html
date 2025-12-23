@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Gorizont R&D</title>
-    <meta name="description" content="Gorizont R&D - научно-исследовательская компания, разработка технологии Gant Protocol и платформы Гант АСУП">
+    <title>Гант АСУП - Gorizont R&D</title>
+    <meta name="description" content="Гант АСУП - автоматизированная система управления процессами">
     <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -26,100 +26,20 @@
     </header>
 
     <nav class="nav" id="mainNav">
-        <a href="#about" class="nav-item">О КОМПАНИИ</a>
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
         <span class="nav-divider">||</span>
-        <a href="#gant" class="nav-item">GANT PROTOCOL</a>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
         <span class="nav-divider">||</span>
-        <a href="#api" class="nav-item">API</a>
+        <a href="api.html" class="nav-item">API</a>
         <span class="nav-divider">||</span>
-        <a href="#presynth" class="nav-item">ГАНТ АСУП</a>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
         <span class="nav-divider">||</span>
-        <a href="#pricing" class="nav-item">ТАРИФЫ</a>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
         <span class="nav-divider">||</span>
-        <a href="#contacts" class="nav-item">КОНТАКТЫ</a>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
     </nav>
 
     <main class="content">
-        <!-- О КОМПАНИИ -->
-        <section id="about" class="section">
-            <h1>О компании</h1>
-
-            <p><strong>Gorizont R&D</strong> - технологическая компания, ведущая научно-исследовательские и инженерные разработки в сфере информационных технологий с целью внедрения автоматизации и повышения производительности труда, осуществляет функции IT-подрядчика и разрабатывает программное обеспечение по заданию заказчика.</p>
-
-            <p>В рамках НИОКР <strong>Gorizont R&D</strong> ведёт разработку технологии <strong>Gant Protocol</strong> и основанной на ней программной платформы <strong>Гант АСУП</strong>.</p>
-
-            <p>Платформа <strong>Гант АСУП</strong> представляет собой автоматизированную систему управления процессами, обеспечивающую сквозную поддержку жизненного цикла проектов и операционной деятельности: от постановки и декомпозиции задач до контроля исполнения и формирования аналитической отчётности. Использование платформы направлено на снижение доли ручных операций, повышение прозрачности процессов и сокращение временных и трудовых затрат.</p>
-
-            <img src="/images/landscape_mood.webp" alt="Landscape" class="section-image">
-        </section>
-
-        <!-- GANT PROTOCOL -->
-        <section id="gant" class="section">
-            <h1>Gant Protocol</h1>
-
-            <p><strong>Gant Protocol</strong> - это открытый унифицированный протокол для структурированного описания проектов, задач и процессов с использованием стандартных форматов данных (YAML/JSON).</p>
-
-            <h2>Ключевые принципы</h2>
-
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Открытость</h3>
-                    <p>Спецификация протокола доступна всем. Любая система может читать и записывать данные в формате Gant.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Простота</h3>
-                    <p>Использование стандартных форматов (YAML/JSON) делает протокол понятным как для людей, так и для машин.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Расширяемость</h3>
-                    <p>Базовая структура поддерживает добавление кастомных полей без нарушения совместимости.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Версионность</h3>
-                    <p>Поддержка миграций между версиями протокола гарантирует долгосрочную совместимость.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- API -->
-        <section id="api" class="section">
-            <h1>API Документация</h1>
-
-            <p>REST API для интеграции с платформой Гант АСУП.</p>
-
-            <h2>Основные эндпоинты</h2>
-
-            <div class="api-endpoint">
-                <div class="api-method">GET</div>
-                <div class="api-path">/api/projects</div>
-                <p>Получить список всех проектов</p>
-            </div>
-
-            <div class="api-endpoint">
-                <div class="api-method post">POST</div>
-                <div class="api-path">/api/projects</div>
-                <p>Создать новый проект</p>
-            </div>
-
-            <div class="api-endpoint">
-                <div class="api-method">GET</div>
-                <div class="api-path">/api/projects/{id}</div>
-                <p>Получить детали проекта</p>
-            </div>
-
-            <div class="api-endpoint">
-                <div class="api-method put">PUT</div>
-                <div class="api-path">/api/projects/{id}</div>
-                <p>Обновить проект</p>
-            </div>
-
-            <p class="api-note">Полная документация доступна по адресу: <code>https://api.gorizont.ai/docs</code></p>
-        </section>
-
-        <!-- ГАНТ АСУП -->
         <section id="presynth" class="section">
             <h1>
                 Гант АСУП
@@ -273,133 +193,6 @@
                 <p><strong>Гибкость.</strong> Адаптация под любые методологии: Agile, Waterfall, Kanban, или гибридные подходы</p>
             </div>
         </section>
-
-        <!-- ТАРИФЫ -->
-        <section id="pricing" class="section">
-            <h1>Планируемые тарифы</h1>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Планируемый тариф: Уровень 1</h3>
-                    <div class="price">Бесплатно</div>
-                    <ul class="features-list">
-                        <li>Gant Protocol (YAML/JSON проекты и задачи)</li>
-                        <li>Dashboard с метриками проектов</li>
-                        <li>Управление задачами и проектами</li>
-                        <li>Multi-tenancy (организации и команды)</li>
-                        <li>Encryption at Rest (AES-256 для PII)</li>
-                        <li>Audit Log (журнал действий пользователей)</li>
-                        <li>Email интеграция (AWS WorkMail IMAP)</li>
-                        <li>GitHub интеграция (webhooks, автосинхронизация)</li>
-                        <li>1C OData интеграция (ERP синхронизация)</li>
-                        <li>WebAuthn/Passkeys безопасность</li>
-                        <li>REST API с OpenAPI документацией</li>
-                        <li>Облачное хранилище 5 ГБ</li>
-                    </ul>
-                    <button class="btn">Выбрать план</button>
-                </div>
-
-                <div class="pricing-card featured">
-                    <div class="badge">Популярный</div>
-                    <h3>Планируемый тариф: Уровень 2</h3>
-                    <div class="price">500 ₽<span class="period">/месяц</span></div>
-                    <ul class="features-list">
-                        <li>Всё из Уровня 1</li>
-                        <li>Облачное хранилище 100 ГБ</li>
-                        <li>Приоритетная поддержка</li>
-                    </ul>
-                    <button class="btn btn-primary">Выбрать план</button>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>Планируемый тариф: Уровень 3</h3>
-                    <div class="price">Enterprise</div>
-                    <p class="enterprise-note">Свяжитесь с нами для получения индивидуального предложения</p>
-                    <button class="btn">Связаться</button>
-                </div>
-            </div>
-
-            <!-- Что работает / Что планируется -->
-            <div class="status-grid">
-                <div class="status-card ready">
-                    <div class="status-header">
-                        <img src="/icons/done.webp" alt="Done" class="status-icon">
-                        <h3>Что уже работает</h3>
-                    </div>
-                    <p class="status-subtitle">Production Ready — доступно прямо сейчас</p>
-                    <ul>
-                        <li>Gant Protocol (YAML/JSON)</li>
-                        <li>Dashboard с метриками</li>
-                        <li>Multi-tenancy & Teams</li>
-                        <li>WebAuthn/Passkeys</li>
-                        <li>Encryption at Rest (AES-256)</li>
-                        <li>Audit Log (журнал действий)</li>
-                        <li>GitHub интеграция</li>
-                        <li>1C OData интеграция</li>
-                        <li>Email интеграция (IMAP)</li>
-                        <li>REST API + OpenAPI docs</li>
-                        <li>Backup & Restore</li>
-                        <li>React Flow визуализация</li>
-                    </ul>
-                    <p class="status-count">24 возможности готовы к использованию</p>
-                </div>
-
-                <div class="status-card planned">
-                    <div class="status-header">
-                        <img src="/icons/loop.webp" alt="Loop" class="status-icon">
-                        <h3>Что планируется</h3>
-                    </div>
-                    <p class="status-subtitle">Roadmap Q1-Q2 2026</p>
-                    <ul>
-                        <li>Slack & Telegram интеграция</li>
-                        <li>JIRA & GitLab sync</li>
-                        <li>Velocity & Burndown charts</li>
-                        <li>Time tracking</li>
-                        <li>Real-time collaboration (WebSocket)</li>
-                        <li>Comments & mentions</li>
-                        <li>File attachments</li>
-                        <li>Custom fields & workflows</li>
-                        <li>Automations (if-then rules)</li>
-                        <li>Mobile apps (iOS/Android)</li>
-                        <li>SSO/SAML & LDAP</li>
-                        <li>White-label branding</li>
-                    </ul>
-                    <p class="status-count">23+ возможности в разработке</p>
-                </div>
-            </div>
-
-            <p class="pricing-footer">
-                Планируемые тарифы после коммерческого запуска (Q1 2026).<br>
-                Скидка 15% при годовой оплате. Для раннего доступа: contact@gorizont.ai
-            </p>
-        </section>
-
-        <!-- КОНТАКТЫ -->
-        <section id="contacts" class="section">
-            <h1>Контакты</h1>
-
-            <div class="contacts-grid">
-                <div class="contact-info">
-                    <h2>ООО «ГОРИЗОНТ АР ЭНД ДИ»<br>(GORIZONT R&D, LLC)</h2>
-
-                    <h3>Адрес:</h3>
-                    <p>410071, Россия, г. Саратов,<br>ул. Шелковичная, 168, стр. 2</p>
-
-                    <h3>Электронная почта:</h3>
-                    <p><a href="mailto:contact@gorizont.ai">contact@gorizont.ai</a></p>
-
-                    <div class="company-details">
-                        <p><strong>ОГРН:</strong> 1256400013253</p>
-                        <p><strong>ИНН:</strong> 6453181282</p>
-                        <p><strong>КПП:</strong> 645301001</p>
-                    </div>
-                </div>
-
-                <div class="contact-image">
-                    <img src="/images/bridge.jpg" alt="Bridge">
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="footer">
@@ -407,10 +200,10 @@
             <div class="footer-column">
                 <h4>Продукт</h4>
                 <ul>
-                    <li><a href="#presynth">Возможности</a></li>
-                    <li><a href="#pricing">Тарифы</a></li>
-                    <li><a href="#api">Документация</a></li>
-                    <li><a href="#api">API</a></li>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
                 </ul>
             </div>
 
@@ -448,19 +241,6 @@
             const nav = document.getElementById('mainNav');
             nav.classList.toggle('open');
         }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close menu on mobile
-                    document.getElementById('mainNav').classList.remove('open');
-                }
-            });
-        });
     </script>
 </body>
 </html>

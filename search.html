@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Поиск - Gorizont R&D</title>
+    <meta name="description" content="Поиск по сайту Gorizont R&D">
+    <link rel="icon" type="image/png" href="/images/gorizont-logo.webp">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <button class="burger-menu" onclick="toggleMenu()" aria-label="Меню">
+            <span class="burger-icon">☰</span>
+        </button>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/images/gorizont-logo.webp" alt="Gorizont R&D" class="logo-icon">
+                <span class="logo-text">GORIZONT R&D</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <a href="about.html" class="nav-item">О КОМПАНИИ</a>
+        <span class="nav-divider">||</span>
+        <a href="gant.html" class="nav-item">GANT PROTOCOL</a>
+        <span class="nav-divider">||</span>
+        <a href="api.html" class="nav-item">API</a>
+        <span class="nav-divider">||</span>
+        <a href="asup.html" class="nav-item">ГАНТ АСУП</a>
+        <span class="nav-divider">||</span>
+        <a href="pricing.html" class="nav-item">ТАРИФЫ</a>
+        <span class="nav-divider">||</span>
+        <a href="contacts.html" class="nav-item">КОНТАКТЫ</a>
+    </nav>
+
+    <main class="content">
+        <section class="section">
+            <h1>Поиск по сайту</h1>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Введите запрос..." class="search-input">
+                <button onclick="performSearch()" class="btn btn-primary">Найти</button>
+            </div>
+
+            <div id="searchResults" class="search-results"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Продукт</h4>
+                <ul>
+                    <li><a href="asup.html">Возможности</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                    <li><a href="api.html">Документация</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="search.html">Поиск</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="status.html">Статус системы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ООО «Горизонт Ар энд Ди». Все права защищены.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+
+        // Search index
+        const searchIndex = [
+            {
+                title: "О компании",
+                url: "about.html",
+                keywords: "компания gorizont r&d технологическая ниокр разработка исследовательская"
+            },
+            {
+                title: "Gant Protocol",
+                url: "gant.html",
+                keywords: "gant protocol протокол yaml json открытый стандарт формат данных"
+            },
+            {
+                title: "API Документация",
+                url: "api.html",
+                keywords: "api rest документация интеграция endpoints эндпоинты"
+            },
+            {
+                title: "Гант АСУП",
+                url: "asup.html",
+                keywords: "асуп платформа система управление проекты задачи автоматизация диаграмма ганта"
+            },
+            {
+                title: "Тарифы",
+                url: "pricing.html",
+                keywords: "тарифы цены планы стоимость подписка enterprise"
+            },
+            {
+                title: "Контакты",
+                url: "contacts.html",
+                keywords: "контакты адрес email почта телефон огрн инн"
+            },
+            {
+                title: "Новости",
+                url: "news.html",
+                keywords: "новости анонсы обновления релизы beta"
+            },
+            {
+                title: "Вакансии",
+                url: "jobs.html",
+                keywords: "вакансии работа карьера devops ai ml legal менеджер"
+            },
+            {
+                title: "Статус системы",
+                url: "status.html",
+                keywords: "статус система работает сервисы доступность"
+            }
+        ];
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsDiv = document.getElementById('searchResults');
+
+            if (!query) {
+                resultsDiv.innerHTML = '<p class="search-empty">Введите поисковый запрос</p>';
+                return;
+            }
+
+            const results = searchIndex.filter(page =>
+                page.title.toLowerCase().includes(query) ||
+                page.keywords.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                resultsDiv.innerHTML = '<p class="search-empty">Ничего не найдено. Попробуйте другой запрос.</p>';
+            } else {
+                const html = results.map(result => `
+                    <div class="search-result-item">
+                        <h3><a href="${result.url}">${result.title}</a></h3>
+                        <p>${result.url}</p>
+                    </div>
+                `).join('');
+                resultsDiv.innerHTML = html;
+            }
+        }
+
+        // Search on Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>
