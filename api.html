@@ -43,36 +43,220 @@
         <!-- API -->
         <section id="api" class="section">
             <h1>API Документация</h1>
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 2em;">REST API для интеграции с Гант АСУП</p>
 
-            <p>REST API для интеграции с платформой Гант АСУП.</p>
+            <p>Гант АСУП предоставляет полнофункциональный REST API для интеграции с внешними системами. Все endpoints поддерживают JSON формат, JWT авторизацию и автоматическую OpenAPI документацию.</p>
 
-            <h2>Основные эндпоинты</h2>
-
-            <div class="api-endpoint">
-                <div class="api-method">GET</div>
-                <div class="api-path">/api/projects</div>
-                <p>Получить список всех проектов</p>
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; margin: 24px 0; border-radius: 4px;">
+                <p style="margin: 0; font-weight: bold;">⚠️ Pre-Production (Beta)</p>
+                <p style="margin: 8px 0 0 0;">API находится в стадии активной разработки. Некоторые endpoints могут изменяться. Рекомендуем использовать версионирование и следить за changelog.</p>
             </div>
 
-            <div class="api-endpoint">
-                <div class="api-method post">POST</div>
-                <div class="api-path">/api/projects</div>
-                <p>Создать новый проект</p>
+            <h2>Аутентификация</h2>
+
+            <p>API использует JWT токены для авторизации запросов. Существует два типа токенов:</p>
+
+            <h3>1. Session токены (автоматически)</h3>
+            <ul style="line-height: 1.8;">
+                <li>Выдаются при логине через <code>/api/auth/login</code></li>
+                <li>Для работы в web-интерфейсе</li>
+                <li>TTL: зависит от настроек сессии</li>
+            </ul>
+
+            <h3>2. API токены (вручную)</h3>
+            <ul style="line-height: 1.8;">
+                <li>Создаются явно через <code>POST /api/auth/tokens</code></li>
+                <li>Для CI/CD, скриптов, интеграций</li>
+                <li>TTL: 90 дней (по умолчанию)</li>
+                <li>Можно отозвать через <code>DELETE</code></li>
+            </ul>
+
+            <p style="background: #e7f3ff; padding: 16px; border-radius: 4px; border-left: 4px solid #0066cc;">
+                <strong>Для интеграций</strong> рекомендуется использовать API токены вместо session токенов, так как они имеют больший TTL и могут быть отозваны независимо от сессии.
+            </p>
+
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;"><code># Получить токен
+curl -X POST https://api.gorizont.ai/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "alice", "password": "***"}'
+
+# Использовать в запросах
+curl -H "Authorization: Bearer &lt;token&gt;" \
+  https://api.gorizont.ai/api/dashboard/summary</code></pre>
+
+            <h2>Основные группы API</h2>
+
+            <h3>1. Gant Protocol API <code>/api/gant/*</code></h3>
+            <p>Управление проектами, планами и задачами через Gant Protocol</p>
+            <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                <li>• <code>GET /api/gant/plans</code> — список планов</li>
+                <li>• <code>POST /api/gant/plans</code> — создать план</li>
+                <li>• <code>GET /api/gant/plans/{id}</code> — детали плана</li>
+                <li>• <code>PUT /api/gant/plans/{id}</code> — обновить план</li>
+                <li>• <code>DELETE /api/gant/plans/{id}</code> — удалить план</li>
+            </ul>
+
+            <h3>2. Authentication API <code>/api/auth/*</code></h3>
+            <p>Управление пользователями, авторизация и JWT токены</p>
+            <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                <li>• <code>POST /api/auth/login</code> — авторизация</li>
+                <li>• <code>POST /api/auth/register</code> — регистрация</li>
+                <li>• <code>GET /api/auth/profile</code> — профиль пользователя</li>
+                <li>• <code>POST /api/auth/tokens</code> — создать API токен</li>
+                <li>• <code>DELETE /api/auth/tokens/{id}</code> — отозвать токен</li>
+            </ul>
+
+            <h3>3. Organizations API <code>/api/organizations/*</code></h3>
+            <p>Multi-tenancy, управление организациями и ролями</p>
+            <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                <li>• <code>GET /api/organizations</code> — список организаций</li>
+                <li>• <code>POST /api/organizations</code> — создать организацию</li>
+                <li>• <code>POST /api/organizations/{id}/invite</code> — пригласить пользователя</li>
+                <li>• <code>PUT /api/organizations/{id}/members/{user_id}</code> — изменить роль</li>
+            </ul>
+
+            <h3>4. Dashboard API <code>/api/dashboard/*</code></h3>
+            <p>Метрики, аналитика и статистика по проектам</p>
+            <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                <li>• <code>GET /api/dashboard/summary?time_range=7d</code> — общая статистика
+                    <ul style="padding-left: 24px; margin-top: 8px;">
+                        <li>Фильтры: <code>7d | 30d | 90d | all</code></li>
+                        <li>Метрики: completion rate, overdue tasks, top contributors</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>5. Integrations API <code>/api/integrations/*</code></h3>
+            <p>Интеграции с GitHub, 1C, Slack, Telegram</p>
+            <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                <li>• <code>POST /api/integrations/github/config</code> — настроить GitHub webhook</li>
+                <li>• <code>POST /api/integrations/github/webhook</code> — receiver для GitHub</li>
+                <li>• <code>POST /api/integrations/erp/1c/config</code> — настроить 1C OData</li>
+                <li>• <code>POST /api/integrations/erp/1c/sync-contracts</code> — синхронизация договоров</li>
+            </ul>
+
+            <h3>6. Audit API <code>/api/audit/*</code></h3>
+            <p>Логирование действий, compliance и история изменений</p>
+            <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                <li>• <code>GET /api/audit/log?user=alice&action=project.create</code> — фильтр логов</li>
+                <li>• <code>GET /api/audit/stats</code> — статистика по действиям</li>
+                <li>• <code>POST /api/audit/prune</code> — очистить старые логи (admin)</li>
+            </ul>
+
+            <h2>Примеры использования</h2>
+
+            <h3>Получить список проектов</h3>
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;"><code>curl -X GET https://api.gorizont.ai/api/gant/plans \
+  -H "Authorization: Bearer &lt;token&gt;" \
+  -H "Content-Type: application/json"
+
+# Ответ:
+{
+  "plans": [
+    {"id": "proj-001", "title": "MVP Release", "status": "in-progress"},
+    {"id": "proj-002", "title": "Security Audit", "status": "done"}
+  ]
+}</code></pre>
+
+            <h3>Создать задачу</h3>
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;"><code>curl -X POST https://api.gorizont.ai/api/gant/plans/proj-001/tasks \
+  -H "Authorization: Bearer &lt;token&gt;" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Implement OAuth",
+    "status": "planned",
+    "priority": "high",
+    "assigned_to": "alice",
+    "due_date": "2025-12-31"
+  }'</code></pre>
+
+            <h2>WebSocket для real-time обновлений</h2>
+
+            <p>Для получения обновлений в реальном времени используйте WebSocket соединение. Сервер отправляет события при изменении задач, проектов или статусов.</p>
+
+            <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;"><code>const ws = new WebSocket('wss://api.gorizont.ai/ws?token=&lt;token&gt;');
+
+ws.onmessage = (event) => {
+  const update = JSON.parse(event.data);
+  console.log('Update:', update);
+};</code></pre>
+
+            <h2>Безопасность и лимиты</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 24px 0;">
+                <div>
+                    <h3 style="margin-bottom: 12px;">Rate Limiting</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• 100 запросов в минуту на организацию</li>
+                        <li>• Заголовки: <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code></li>
+                        <li>• HTTP 429 при превышении лимита</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Encryption</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• HTTPS/TLS 1.3 для всех соединений</li>
+                        <li>• AES-256 encryption at rest для PII</li>
+                        <li>• HMAC SHA256 для webhook signatures</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Audit Log</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• Все API действия логируются</li>
+                        <li>• Append-only журнал для compliance</li>
+                        <li>• Retention: 365 дней (configurable)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 12px;">Scope Enforcement</h3>
+                    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                        <li>• Токены с ограниченными правами (read/write/admin)</li>
+                        <li>• Revocation через <code>DELETE /api/auth/tokens/{id}</code></li>
+                        <li>• Multi-tenancy isolation (org_id)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="api-endpoint">
-                <div class="api-method">GET</div>
-                <div class="api-path">/api/projects/{id}</div>
-                <p>Получить детали проекта</p>
+            <h2>OpenAPI спецификация</h2>
+
+            <p>Полная интерактивная документация доступна через Swagger UI:</p>
+
+            <p style="font-size: 1.2em; text-align: center; margin: 24px 0;">
+                <a href="https://api.gorizont.ai/docs" style="background: #0066cc; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; display: inline-block;">
+                    https://api.gorizont.ai/docs
+                </a>
+            </p>
+
+            <p style="text-align: center; color: #666;">Автогенерируется FastAPI, всегда актуальная</p>
+
+            <h2>SDK и библиотеки</h2>
+
+            <p>Официальные SDK для популярных языков программирования (в разработке):</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0;">
+                <div style="padding: 16px; background: #f9f9f9; border-radius: 4px; text-align: center;">
+                    <h3 style="margin: 0 0 8px 0;">Python</h3>
+                    <p style="margin: 0; color: #666;">В разработке</p>
+                </div>
+
+                <div style="padding: 16px; background: #f9f9f9; border-radius: 4px; text-align: center;">
+                    <h3 style="margin: 0 0 8px 0;">JavaScript/TypeScript</h3>
+                    <p style="margin: 0; color: #666;">В разработке</p>
+                </div>
+
+                <div style="padding: 16px; background: #f9f9f9; border-radius: 4px; text-align: center;">
+                    <h3 style="margin: 0 0 8px 0;">Go</h3>
+                    <p style="margin: 0; color: #666;">Планируется</p>
+                </div>
             </div>
 
-            <div class="api-endpoint">
-                <div class="api-method put">PUT</div>
-                <div class="api-path">/api/projects/{id}</div>
-                <p>Обновить проект</p>
-            </div>
+            <h2>Поддержка для разработчиков</h2>
 
-            <p class="api-note">Полная документация доступна по адресу: <code>https://api.gorizont.ai/docs</code></p>
+            <p>Вопросы по API и интеграциям: <a href="mailto:contact@gorizont.ai">contact@gorizont.ai</a></p>
         </section>
     </main>
 
